@@ -67,30 +67,6 @@ const PROJECTS = [
     url: 'https://github.com/atauln/TigerWallet',
     tech: ['Flask', 'Python', 'HTML', 'CSS', 'Web Scraping', 'BeautifulSoup', 'Authentication'],
     description: "Flask application to parse and display real-time account balances and meal plan spending details from RIT's TigerSpend portal."
-  },
-  {
-    name: 'VisitingChefSlackBot',
-    url: 'https://github.com/atauln/VisitingChefSlackBot',
-    tech: ['Python', 'Slack API', 'Web Scraping', 'BeautifulSoup', 'Automation'],
-    description: 'Slack bot integrated with campus schedules to notify channel members where good food options are located daily.'
-  },
-  {
-    name: 'DiningFlutter',
-    url: 'https://github.com/atauln/DiningFlutter',
-    tech: ['Flutter', 'Dart', 'Python', 'REST API', 'Mobile App Development'],
-    description: 'Cross-platform mobile frontend and backend notifications system for dining options and dashboard metrics.'
-  },
-  {
-    name: 'PARCSTAR',
-    url: 'https://github.com/atauln/PARCSTAR',
-    tech: ['Java', 'GUI Design', 'Audio Processing', 'MIDI API', 'Music Algorithms'],
-    description: 'Interactive guitar learning and tab parsing software built to assist reading chord progressions and practicing tracks.'
-  },
-  {
-    name: 'OptionsTrader',
-    url: 'https://github.com/atauln/OptionsTrader',
-    tech: ['Python', 'Financial APIs', 'Redis', 'Twilio', 'Data Streaming'],
-    description: 'Lightweight options pricing monitor and alert system integrating financial data feeds with messaging hooks.'
   }
 ]
 
@@ -445,9 +421,8 @@ export default function App() {
           <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-zinc-400">
             <a href="#about" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-md px-1">About</a>
             <a href="#terminal" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-md px-1">Console</a>
-            <a href="#graph" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-md px-1">Skill Graph</a>
-            <a href="#experience" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-md px-1">Experience</a>
             <a href="#projects" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-md px-1">Projects</a>
+            <a href="#experience" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-md px-1">Experience</a>
             <a href="#contact" className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950">Contact</a>
           </div>
         </div>
@@ -573,7 +548,7 @@ export default function App() {
       </ScrollSection>
 
       {/* Interactive Dependency Graph Board */}
-      <ScrollSection id="graph" className="max-w-6xl mx-auto px-6 py-16 scroll-mt-20">
+      <ScrollSection id="projects" className="max-w-6xl mx-auto px-6 py-16 scroll-mt-20">
         <div className="text-center max-w-xl mx-auto mb-10">
           <h2 className="text-3xl font-heading font-extrabold text-white mb-3">Interactive Skill-Project Graph</h2>
           <p className="text-zinc-400">Click on any core technical skill or project card below to highlight and track the structural links between them.</p>
@@ -796,171 +771,3 @@ export default function App() {
           </div>
         </div>
       </ScrollSection>
-
-      {/* Projects Grid Section (Additional Repos) */}
-      <ScrollSection id="projects" className="max-w-6xl mx-auto px-6 py-16 scroll-mt-20">
-        <div className="text-center max-w-xl mx-auto mb-12">
-          <h2 className="text-3xl font-heading font-extrabold text-white mb-3">All GitHub Projects</h2>
-          <p className="text-zinc-400">Additional repositories and open-source tools I have created or contributed to.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="glass-panel p-6 rounded-xl border border-zinc-800 bg-zinc-900/10">
-            <h4 className="font-heading font-bold text-lg text-white mb-2">VisitingChefSlackBot</h4>
-            <p className="text-sm text-zinc-400 mb-4">Slack bot integrated with campus schedules to notify channel members where good food options are located daily.</p>
-            <div className="flex justify-between items-center">
-              <span className="text-[10px] font-mono bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded">Python • Slack API</span>
-              <a 
-                href="https://github.com/atauln/VisitingChefSlackBot" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="text-blue-400 text-xs font-semibold inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1"
-                aria-label="View VisitingChefSlackBot Repository"
-              >
-                Repo <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
-          </div>
-
-          <div className="glass-panel p-6 rounded-xl border border-zinc-800 bg-zinc-900/10">
-            <h4 className="font-heading font-bold text-lg text-white mb-2">TigerWallet</h4>
-            <p className="text-sm text-zinc-400 mb-4">Flask web application to securely connect, parse, and monitor detailed transaction balances from RIT TigerSpend accounts.</p>
-            <div className="flex justify-between items-center">
-              <span className="text-[10px] font-mono bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded">Python • Flask</span>
-              <a 
-                href="https://github.com/atauln/TigerWallet" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="text-blue-400 text-xs font-semibold inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1"
-                aria-label="View TigerWallet Repository"
-              >
-                Repo <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
-          </div>
-
-          <div className="glass-panel p-6 rounded-xl border border-zinc-800 bg-zinc-900/10">
-            <h4 className="font-heading font-bold text-lg text-white mb-2">PARCSTAR</h4>
-            <p className="text-sm text-zinc-400 mb-4">Work-in-progress interactive software built to assist learning guitar, reading chord progressions, and practicing tracks.</p>
-            <div className="flex justify-between items-center">
-              <span className="text-[10px] font-mono bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded">Java • Audio Processing</span>
-              <a 
-                href="https://github.com/atauln/PARCSTAR" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="text-blue-400 text-xs font-semibold inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1"
-                aria-label="View PARCSTAR Repository"
-              >
-                Repo <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </ScrollSection>
-
-      {/* Contact Section */}
-      <ScrollSection id="contact" className="max-w-6xl mx-auto px-6 py-16 scroll-mt-20">
-        <div className="glass-panel p-8 md:p-12 rounded-3xl border border-zinc-800 bg-zinc-900/30 max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-white mb-4">Let's Connect</h2>
-              <p className="text-zinc-400 leading-relaxed mb-6 text-wrap: pretty">
-                Are you looking to hire a systems/backend intern, collaborate on distributed infrastructure, or just chat about homelabs and APIs? Drop me a message, and I'll get back to you as soon as possible.
-              </p>
-              <div className="space-y-4">
-                <a href="mailto:ataulnoor75@gmail.com" className="flex items-center gap-3 text-zinc-300 hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1">
-                  <Mail className="w-5 h-5 text-blue-500" aria-hidden="true" />
-                  <span>ataulnoor75@gmail.com</span>
-                </a>
-                <div className="flex items-center gap-3 text-zinc-300">
-                  <Phone className="w-5 h-5 text-blue-500" aria-hidden="true" />
-                  <span>(513) 582 6809</span>
-                </div>
-                <div className="flex items-center gap-3 text-zinc-300">
-                  <MapPin className="w-5 h-5 text-blue-500" aria-hidden="true" />
-                  <span>Rochester, NY</span>
-                </div>
-              </div>
-            </div>
-
-            <form onSubmit={handleContactSubmit} className="space-y-4">
-              {formStatus.message && (
-                <div className={`p-4 rounded-xl border flex items-start gap-3 ${
-                  formStatus.type === 'error' 
-                    ? 'bg-red-950/20 border-red-500/50 text-red-200' 
-                    : 'bg-green-950/20 border-green-500/50 text-green-200'
-                }`} aria-live="polite">
-                  {formStatus.type === 'error' ? <AlertTriangle className="w-5 h-5 flex-shrink-0" aria-hidden="true" /> : <CheckCircle className="w-5 h-5 flex-shrink-0" aria-hidden="true" />}
-                  <span className="text-sm font-medium">{formStatus.message}</span>
-                </div>
-              )}
-
-              <div>
-                <label htmlFor="name-input" className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Name</label>
-                <input
-                  id="name-input"
-                  name="name"
-                  type="text"
-                  required
-                  autoComplete="name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="e.g., Ata Noor"
-                  className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email-input" className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Email Address</label>
-                <input
-                  id="email-input"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  spellCheck={false}
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="e.g., ataulnoor75@gmail.com"
-                  className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message-input" className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Message</label>
-                <textarea
-                  id="message-input"
-                  name="message"
-                  rows={4}
-                  required
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Say hello…"
-                  className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors resize-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white font-semibold py-3 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-              >
-                {isSubmitting ? 'Sending…' : 'Send Message'} <Send className="w-4 h-4" aria-hidden="true" />
-              </button>
-            </form>
-          </div>
-        </div>
-      </ScrollSection>
-
-      {/* Footer */}
-      <footer className="max-w-6xl mx-auto px-6 pt-12 border-t border-zinc-800/80 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
-        <p>© 2026 Ata Noor. All rights reserved.</p>
-        <div className="flex gap-6">
-          <a href="https://github.com/atauln" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="GitHub Profile">GitHub</a>
-          <a href="https://linkedin.com/in/atanoor" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="LinkedIn Profile">LinkedIn</a>
-          <a href="mailto:ataulnoor75@gmail.com" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="Send Email">Email</a>
-        </div>
-      </footer>
-    </div>
-  )
-}
