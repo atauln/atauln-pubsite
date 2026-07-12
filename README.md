@@ -1,16 +1,23 @@
-# React + Vite
+# Ata Noor - Cinematic Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A premium, high-performance developer portfolio website designed for **Ata Noor**, showcasing systems administration, backend API design, and AI engineering expertise.
 
-Currently, two official plugins are available:
+Live Site: **[https://atauln.dev](https://atauln.dev)** (deployed via GitHub Pages at [https://atauln.github.io/atauln-pubsite/](https://atauln.github.io/atauln-pubsite/))
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- **Cinematic Aesthetic**: High-contrast dark theme with animated ambient glow blobs and floating responsive particles.
+- **Systems Terminal Widget**: Fully-functional interactive mock Unix console allowing users to query neofetch, skills, projects, and custom easter eggs.
+- **Skill-Project Graph**: Interactive dependency visualizer mapping technical competencies directly to completed projects.
+- **Work History Timeline**: Clean, structured experience sections detailing internship roles at MITRE and systems administration at RIT.
+- **Performance-First Native Scroll**: Fluid 100% native scrolling mechanics configured to prevent layouts from snapping or capturing wheel inputs.
+- **UI/UX Compliance**: Built to conform to Web Interface Guidelines, with visible focus layers, landmark elements, and proper ARIA labels.
 
-## React Compiler
+## Documentation
+For details regarding technical challenges resolved during development (including scroll trapping, scrollbars, clipping, and deployment configurations), please refer to:
+👉 **[HANDOFF.md](./HANDOFF.md)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Tech Stack
+- **Core**: React, Vite
+- **Styling**: Tailwind CSS v4, Vanilla CSS
+- **Icons**: Lucide React
+- **Deployment**: GitHub Pages Actions Workflow
