@@ -771,3 +771,110 @@ export default function App() {
           </div>
         </div>
       </ScrollSection>
+
+      {/* Contact Section */}
+      <ScrollSection id="contact" className="max-w-6xl mx-auto px-6 py-16 scroll-mt-20">
+        <div className="glass-panel p-8 md:p-12 rounded-3xl border border-zinc-800 bg-zinc-900/30 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-white mb-4">Let's Connect</h2>
+              <p className="text-zinc-400 leading-relaxed mb-6 text-wrap: pretty">
+                Are you looking to hire a systems/backend intern, collaborate on distributed infrastructure, or just chat about homelabs and APIs? Drop me a message, and I'll get back to you as soon as possible.
+              </p>
+              <div className="space-y-4">
+                <a href="mailto:ataulnoor75@gmail.com" className="flex items-center gap-3 text-zinc-300 hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="Email Address">
+                  <Mail className="w-5 h-5 text-blue-500" aria-hidden="true" />
+                  <span>ataulnoor75@gmail.com</span>
+                </a>
+                <div className="flex items-center gap-3 text-zinc-300">
+                  <Phone className="w-5 h-5 text-blue-500" aria-hidden="true" />
+                  <span>(513) 582 6809</span>
+                </div>
+                <div className="flex items-center gap-3 text-zinc-300">
+                  <MapPin className="w-5 h-5 text-blue-500" aria-hidden="true" />
+                  <span>Rochester, NY</span>
+                </div>
+              </div>
+            </div>
+
+            <form onSubmit={handleContactSubmit} className="space-y-4">
+              {formStatus.message && (
+                <div className={`p-4 rounded-xl border flex items-start gap-3 ${
+                  formStatus.type === 'error' 
+                    ? 'bg-red-950/20 border-red-500/50 text-red-200' 
+                    : 'bg-green-950/20 border-green-500/50 text-green-200'
+                }`} aria-live="polite">
+                  {formStatus.type === 'error' ? <AlertTriangle className="w-5 h-5 flex-shrink-0" aria-hidden="true" /> : <CheckCircle className="w-5 h-5 flex-shrink-0" aria-hidden="true" />}
+                  <span className="text-sm font-medium">{formStatus.message}</span>
+                </div>
+              )}
+
+              <div>
+                <label htmlFor="name-input" className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Name</label>
+                <input
+                  id="name-input"
+                  name="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="e.g., Ata Noor"
+                  className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email-input" className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Email Address</label>
+                <input
+                  id="email-input"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  spellCheck={false}
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="e.g., ataulnoor75@gmail.com"
+                  className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message-input" className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Message</label>
+                <textarea
+                  id="message-input"
+                  name="message"
+                  rows={4}
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Say hello…"
+                  className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors resize-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white font-semibold py-3 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              >
+                {isSubmitting ? 'Sending…' : 'Send Message'} <Send className="w-4 h-4" aria-hidden="true" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </ScrollSection>
+
+      {/* Footer */}
+      <footer className="max-w-6xl mx-auto px-6 pt-12 border-t border-zinc-800/80 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
+        <p>© 2026 Ata Noor. All rights reserved.</p>
+        <div className="flex gap-6">
+          <a href="https://github.com/atauln" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="GitHub Profile">GitHub</a>
+          <a href="https://linkedin.com/in/atanoor" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="LinkedIn Profile">LinkedIn</a>
+          <a href="mailto:ataulnoor75@gmail.com" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="Send Email">Email</a>
+        </div>
+      </footer>
+    </div>
+  )
+}
