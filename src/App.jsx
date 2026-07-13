@@ -779,7 +779,7 @@ export default function App() {
             <div>
               <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-white mb-4">Let's Connect</h2>
               <p className="text-zinc-400 leading-relaxed mb-6 text-wrap: pretty">
-                Are you looking to hire a systems/backend intern, collaborate on distributed infrastructure, or just chat about homelabs and APIs? Drop me a message, and I'll get back to you as soon as possible.
+                Are you looking to hire a systems/backend developer, collaborate on distributed infrastructure, or just chat about homelabs and APIs? Drop me a message, and I'll get back to you as soon as possible.
               </p>
               <div className="space-y-4">
                 <a href="mailto:ataulnoor75@gmail.com" className="flex items-center gap-3 text-zinc-300 hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="Email Address">
