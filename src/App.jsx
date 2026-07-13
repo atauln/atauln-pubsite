@@ -478,7 +478,7 @@ export default function App() {
               <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
             </div>
             <h3 className="font-heading font-semibold text-lg text-white mb-4 flex items-center gap-2">
-              <TerminalIcon className="text-blue-500 w-5 h-5" aria-hidden="true" /> quick_bio.sh
+              <TerminalIcon className="text-blue-500 w-5 h-5" aria-hidden="true" /> quick_bio.json
             </h3>
             <pre className="text-xs md:text-sm font-mono text-zinc-400 overflow-x-auto whitespace-pre-wrap leading-relaxed">
 {`{
