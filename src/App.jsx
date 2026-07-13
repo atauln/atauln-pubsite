@@ -308,13 +308,18 @@ export default function App() {
 
     setIsSubmitting(true)
     setFormStatus({ type: null, message: '' })
-
     try {
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'YOUR_ACCESS_KEY_HERE'
+      if (!import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || import.meta.env.VITE_WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
+        // Force simulation mode locally if no key is configured
+        throw new Error('Simulation Mode')
+      }
+
       await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY_HERE',
+          access_key: accessKey,
           name: formData.name,
           email: formData.email,
           message: formData.message,
@@ -325,7 +330,11 @@ export default function App() {
       setFormStatus({ type: 'success', message: 'Message sent successfully! Thank you for reaching out.' })
       setFormData({ name: '', email: '', message: '' })
     } catch (err) {
-      setFormStatus({ type: 'success', message: 'Message sent successfully! (Simulated submission in local env)' })
+      if (err.message === 'Simulation Mode') {
+        setFormStatus({ type: 'success', message: 'Message sent successfully! (Simulated submission in local/offline environment)' })
+      } else {
+        setFormStatus({ type: 'error', message: 'Failed to send message. Please configure a valid Web3Forms access key.' })
+      }
       setFormData({ name: '', email: '', message: '' })
     } finally {
       setIsSubmitting(false)
