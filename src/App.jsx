@@ -233,11 +233,30 @@ export default function App() {
     }
   }
 
+  // Helper to track external link clicks
+  const trackExternalLink = (label, url) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'external_link_click', {
+        event_category: 'Engagement',
+        event_label: label,
+        destination_url: url
+      })
+    }
+  }
+
   // Handle Terminal Commands
   const handleTerminalSubmit = (e) => {
     e.preventDefault()
     const cmd = terminalInput.trim().toLowerCase()
     if (!cmd) return
+
+    // Track command execution in Analytics
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'terminal_command', {
+        event_category: 'Engagement',
+        event_label: cmd
+      })
+    }
 
     let newHistory = [...terminalHistory, { text: `~$ ${terminalInput}`, type: 'input' }]
 
@@ -327,12 +346,32 @@ export default function App() {
         })
       })
 
+      // Track contact success
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'contact_submit_success', {
+          event_category: 'Engagement'
+        })
+      }
+
       setFormStatus({ type: 'success', message: 'Message sent successfully! Thank you for reaching out.' })
       setFormData({ name: '', email: '', message: '' })
     } catch (err) {
       if (err.message === 'Simulation Mode') {
+        // Track simulated contact success
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'contact_submit_simulated', {
+            event_category: 'Engagement'
+          })
+        }
         setFormStatus({ type: 'success', message: 'Message sent successfully! (Simulated submission in local/offline environment)' })
       } else {
+        // Track contact failure
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'contact_submit_failed', {
+            event_category: 'Engagement',
+            error_message: err.message
+          })
+        }
         setFormStatus({ type: 'error', message: 'Failed to send message. Please configure a valid Web3Forms access key.' })
       }
       setFormData({ name: '', email: '', message: '' })
@@ -352,6 +391,13 @@ export default function App() {
     } else {
       setSelectedSkill(skill)
       setSelectedProject(null)
+      // Track skill click in Analytics
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'skill_click', {
+          event_category: 'Engagement',
+          event_label: skill
+        })
+      }
     }
   }
 
@@ -362,6 +408,13 @@ export default function App() {
     } else {
       setSelectedProject(project)
       setSelectedSkill(null)
+      // Track project click in Analytics
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'project_click', {
+          event_category: 'Engagement',
+          event_label: projName
+        })
+      }
     }
   }
 
@@ -455,10 +508,10 @@ export default function App() {
             <a href="#contact" className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-all transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950">
               Get in Touch <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
-            <a href="https://github.com/atauln" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 px-6 py-3 rounded-lg transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950" aria-label="Ata Noor's GitHub Profile">
+            <a href="https://github.com/atauln" target="_blank" rel="noreferrer" onClick={() => trackExternalLink('hero_github', 'https://github.com/atauln')} className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 px-6 py-3 rounded-lg transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950" aria-label="Ata Noor's GitHub Profile">
               <Github className="w-5 h-5" /> GitHub
             </a>
-            <a href="https://linkedin.com/in/atanoor" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 px-6 py-3 rounded-lg transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950" aria-label="Ata Noor's LinkedIn Profile">
+            <a href="https://linkedin.com/in/atanoor" target="_blank" rel="noreferrer" onClick={() => trackExternalLink('hero_linkedin', 'https://linkedin.com/in/atanoor')} className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 px-6 py-3 rounded-lg transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950" aria-label="Ata Noor's LinkedIn Profile">
               <Linkedin className="w-5 h-5" /> LinkedIn
             </a>
           </div>
@@ -632,7 +685,10 @@ export default function App() {
                         target="_blank" 
                         rel="noreferrer" 
                         className="text-zinc-500 hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1 rounded p-0.5" 
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          trackExternalLink(`project_github_${project.name}`, project.url);
+                        }}
                         aria-label={`View ${project.name} GitHub Repository`}
                       >
                         <ExternalLink className="w-4 h-4" />
@@ -690,6 +746,7 @@ export default function App() {
                       target="_blank" 
                       rel="noreferrer" 
                       className="text-sm text-zinc-400 hover:text-blue-400 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1"
+                      onClick={() => trackExternalLink(`experience_company_${exp.company}`, exp.companyUrl)}
                       aria-label={`Visit ${exp.company} website`}
                     >
                       {exp.company} <ExternalLink className="w-3 h-3" />
@@ -709,6 +766,7 @@ export default function App() {
                       target="_blank" 
                       rel="noreferrer" 
                       className="text-sm text-zinc-400 hover:text-blue-400 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1"
+                      onClick={() => trackExternalLink(`experience_company_${exp.company}`, exp.companyUrl)}
                       aria-label={`Visit ${exp.company} website`}
                     >
                       {exp.company} <ExternalLink className="w-3 h-3" />
@@ -879,9 +937,9 @@ export default function App() {
       <footer className="max-w-6xl mx-auto px-6 pt-12 border-t border-zinc-800/80 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
         <p>© 2026 Ata Noor. All rights reserved.</p>
         <div className="flex gap-6">
-          <a href="https://github.com/atauln" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="GitHub Profile">GitHub</a>
-          <a href="https://linkedin.com/in/atanoor" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="LinkedIn Profile">LinkedIn</a>
-          <a href="mailto:ataulnoor75@gmail.com" className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="Send Email">Email</a>
+          <a href="https://github.com/atauln" target="_blank" rel="noreferrer" onClick={() => trackExternalLink('footer_github', 'https://github.com/atauln')} className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="GitHub Profile">GitHub</a>
+          <a href="https://linkedin.com/in/atanoor" target="_blank" rel="noreferrer" onClick={() => trackExternalLink('footer_linkedin', 'https://linkedin.com/in/atanoor')} className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="LinkedIn Profile">LinkedIn</a>
+          <a href="mailto:ataulnoor75@gmail.com" onClick={() => trackExternalLink('footer_email', 'mailto:ataulnoor75@gmail.com')} className="hover:text-blue-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1" aria-label="Send Email">Email</a>
         </div>
       </footer>
     </div>
