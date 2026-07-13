@@ -17,7 +17,8 @@ import {
   Database,
   Sliders,
   Sparkles,
-  Award
+  Award,
+  FileText
 } from 'lucide-react'
 
 // Custom Brand Icons since they are deprecated/removed from core lucide-react
@@ -504,14 +505,17 @@ export default function App() {
             Hi, I'm <strong className="text-white">Ata Noor</strong>. I engineer scalable backend architectures, containerized cloud infrastructure, and autonomous semantic discovery layers. Currently pursuing Software Engineering at RIT.
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-2">
-            <a href="#contact" className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-all transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950">
+          <div className="flex flex-wrap sm:flex-nowrap gap-3 pt-2 whitespace-nowrap">
+            <a href="#contact" className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-5 py-3 rounded-lg hover:bg-blue-700 transition-all transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950">
               Get in Touch <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
-            <a href="https://github.com/atauln" target="_blank" rel="noreferrer" onClick={() => trackExternalLink('hero_github', 'https://github.com/atauln')} className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 px-6 py-3 rounded-lg transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950" aria-label="Ata Noor's GitHub Profile">
+            <a href="https://raw.githubusercontent.com/atauln/resume/master/resume/main.pdf" target="_blank" rel="noreferrer" onClick={() => trackExternalLink('hero_resume', 'https://raw.githubusercontent.com/atauln/resume/master/resume/main.pdf')} className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 px-5 py-3 rounded-lg transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950" aria-label="Download Resume PDF">
+              <FileText className="w-5 h-5" /> Resume
+            </a>
+            <a href="https://github.com/atauln" target="_blank" rel="noreferrer" onClick={() => trackExternalLink('hero_github', 'https://github.com/atauln')} className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 px-5 py-3 rounded-lg transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950" aria-label="Ata Noor's GitHub Profile">
               <Github className="w-5 h-5" /> GitHub
             </a>
-            <a href="https://linkedin.com/in/atanoor" target="_blank" rel="noreferrer" onClick={() => trackExternalLink('hero_linkedin', 'https://linkedin.com/in/atanoor')} className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 px-6 py-3 rounded-lg transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950" aria-label="Ata Noor's LinkedIn Profile">
+            <a href="https://linkedin.com/in/atanoor" target="_blank" rel="noreferrer" onClick={() => trackExternalLink('hero_linkedin', 'https://linkedin.com/in/atanoor')} className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 px-5 py-3 rounded-lg transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950" aria-label="Ata Noor's LinkedIn Profile">
               <Linkedin className="w-5 h-5" /> LinkedIn
             </a>
           </div>
