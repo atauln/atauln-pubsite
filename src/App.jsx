@@ -577,7 +577,7 @@ export default function App() {
 
           <div 
             ref={terminalConsoleRef}
-            className="p-4 h-80 overflow-y-hidden font-mono text-sm leading-relaxed space-y-1"
+            className="p-4 h-80 overflow-y-hidden font-mono text-sm leading-relaxed space-y-1 whitespace-pre-wrap"
           >
             {terminalHistory.map((line, idx) => {
               let color = 'text-zinc-300'
