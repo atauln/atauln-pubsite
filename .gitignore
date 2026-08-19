@@ -22,5 +22,9 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
-*.sw?
+# Local artifacts
+recruiter_website_audit.md
+ai_slop_code_and_ui_audit.md
+artifacts/
+
+

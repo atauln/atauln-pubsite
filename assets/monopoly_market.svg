@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="100%" height="auto" style="background-color: #ffffff; font-family: 'Inter', system-ui, sans-serif;">
+  <!-- Grid lines -->
+  <line x1="80" y1="50" x2="80" y2="420" stroke="#ccc" stroke-width="1.5" />
+  <line x1="80" y1="420" x2="550" y2="420" stroke="#ccc" stroke-width="1.5" />
+  
+  <!-- Axis Labels -->
+  <text x="50" y="45" font-size="14" font-weight="600" fill="#333">Price ($)</text>
+  <text x="540" y="445" font-size="14" font-weight="600" fill="#333">Quantity (Q)</text>
+  
+  <!-- Demand Curve (P = 100 - 0.5Q) -->
+  <!-- At Q=0, P=100 (y=50) -->
+  <!-- At Q=180, P=10 (y=384) -->
+  <!-- At Q=200, P=0 (y=420) -->
+  <!-- Scale: Q coordinate = 80 + Q * 2, P coordinate = 420 - P * 3.7 -->
+  <line x1="80" y1="50" x2="480" y2="420" stroke="#2563eb" stroke-width="3" />
+  <text x="490" y="425" font-size="13" font-weight="600" fill="#2563eb">Demand (P = 100 - 0.5Q)</text>
+  
+  <!-- MR Curve (MR = 100 - Q) -->
+  <!-- At Q=0, MR=100 (y=50) -->
+  <!-- At Q=100, MR=0 (y=420) -->
+  <line x1="80" y1="50" x2="280" y2="420" stroke="#7c3aed" stroke-dasharray="4" stroke-width="2" />
+  <text x="290" y="425" font-size="13" font-weight="600" fill="#7c3aed">MR</text>
+  
+  <!-- MC Curve (MC = 10) -->
+  <!-- y = 420 - 10 * 3.7 = 383 -->
+  <line x1="80" y1="383" x2="520" y2="383" stroke="#dc2626" stroke-width="3" />
+  <text x="530" y="388" font-size="13" font-weight="600" fill="#dc2626">MC = 10</text>
+  
+  <!-- Areas (Producer Surplus, Consumer Surplus, DWL) -->
+  <!-- Q_m = 90 -> x = 80 + 90*2 = 260 -->
+  <!-- P_m = 55 -> y = 420 - 55*3.7 = 216.5 -->
+  <!-- MC = 10 -> y = 383 -->
+  <!-- Demand at Q=90: P=55 -> y=216.5 -->
+  
+  <!-- Consumer Surplus: Triangle from (0,100) to (0,55) to (90,55) -->
+  <!-- points: 80,50 80,216.5 260,216.5 -->
+  <polygon points="80,50 80,216.5 260,216.5" fill="#3b82f6" fill-opacity="0.15" />
+  <text x="120" y="160" font-size="12" font-weight="600" fill="#1e3a8a">Consumer Surplus</text>
+  
+  <!-- Producer Surplus: Rectangle from (0,55) to (0,10) to (90,10) to (90,55) -->
+  <!-- points: 80,216.5 80,383 260,383 260,216.5 -->
+  <polygon points="80,216.5 80,383 260,383 260,216.5" fill="#10b981" fill-opacity="0.2" />
+  <text x="120" y="300" font-size="12" font-weight="600" fill="#065f46">Producer Surplus (PS)</text>
+  
+  <!-- Deadweight Loss (DWL): Triangle from (90,55) to (90,10) to (180,10) -->
+  <!-- Q^* = 180 -> x = 80 + 180*2 = 440 -->
+  <!-- points: 260,216.5 260,383 440,383 -->
+  <polygon points="260,216.5 260,383 440,383" fill="#f59e0b" fill-opacity="0.25" />
+  <text x="290" y="330" font-size="12" font-weight="600" fill="#92400e">DWL</text>
+  
+  <!-- Dotted projection lines for Q_m and P_m -->
+  <line x1="260" y1="216.5" x2="260" y2="420" stroke="#555" stroke-dasharray="3" />
+  <line x1="80" y1="216.5" x2="260" y2="216.5" stroke="#555" stroke-dasharray="3" />
+  
+  <!-- Dotted projection lines for Q^* -->
+  <line x1="440" y1="383" x2="440" y2="420" stroke="#555" stroke-dasharray="3" />
+  
+  <!-- Dots at key points -->
+  <circle cx="260" cy="216.5" r="4" fill="#000" />
+  <circle cx="260" cy="383" r="4" fill="#000" />
+  <circle cx="440" cy="383" r="4" fill="#000" />
+  
+  <!-- Axis ticks and labels -->
+  <!-- P = 100 -->
+  <text x="50" y="55" font-size="12" fill="#555">100</text>
+  <!-- P_m = 55 -->
+  <text x="58" y="221" font-size="12" fill="#555">55</text>
+  <!-- MC = 10 -->
+  <text x="58" y="388" font-size="12" fill="#555">10</text>
+  
+  <!-- Q_m = 90 -->
+  <text x="252" y="438" font-size="12" fill="#555">90</text>
+  <!-- Q^* = 180 -->
+  <text x="430" y="438" font-size="12" fill="#555">180</text>
+  
+  <text x="230" y="30" font-size="16" font-weight="700" fill="#111">Monopoly Market Equilibrium</text>
+</svg>

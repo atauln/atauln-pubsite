@@ -6,59 +6,98 @@
     --font-body: 'Plus Jakarta Sans', sans-serif;
   }
 
-html {
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
 
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  background-color: #09090b;
-  color: #f4f4f5;
-}
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: #09090b;
+    color: #f4f4f5;
+  }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
   }
 }
 
-/* Glassmorphism helpers */
-.glass-panel {
-  background: rgba(18, 18, 24, 0.65);
+/* Navigation Overlay Glassmorphism (Restricted to sticky top navbar per R-10) */
+.glass-nav {
+  background: rgba(9, 9, 11, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(63, 63, 70, 0.4);
+  border-bottom: 1px solid rgba(39, 39, 42, 0.8);
+}
+
+/* High-Craft Surface Cards (Solid dark background, clean borders, zero backdrop-blur stacking) */
+.surface-card {
+  background: rgba(24, 24, 27, 0.65);
+  border: 1px solid rgba(39, 39, 42, 0.8);
+}
+
+.surface-card:hover {
+  border-color: rgba(63, 63, 70, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(37, 99, 235, 0.05);
+}
+
+/* Legacy glass panel fallback */
+.glass-panel {
+  background: rgba(24, 24, 27, 0.65);
+  border: 1px solid rgba(39, 39, 42, 0.8);
 }
 
 .glass-panel:hover {
   border-color: rgba(37, 99, 235, 0.4);
-  box-shadow: 0 0 25px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.08);
 }
 
-/* Atmospheric light blobs */
-@keyframes blob-bounce {
+/* Smooth Multi-Stop Ambient Glows (Eliminates Blur Color Banding & Step Artifacts) */
+.ambient-glow-blue {
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.12) 0%, rgba(30, 58, 138, 0.05) 45%, rgba(9, 9, 11, 0) 75%);
+}
+
+.ambient-glow-indigo {
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.10) 0%, rgba(49, 46, 129, 0.04) 45%, rgba(9, 9, 11, 0) 75%);
+}
+
+.ambient-glow-violet {
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.09) 0%, rgba(76, 29, 149, 0.03) 45%, rgba(9, 9, 11, 0) 75%);
+}
+
+/* Pure CSS GPU Ambient Particle Animations */
+@keyframes particle-float {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate3d(0, 0, 0);
+    opacity: 0.25;
   }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.95);
+  50% {
+    transform: translate3d(15px, -25px, 0);
+    opacity: 0.6;
   }
 }
 
-.animate-blob-slow {
-  animation: blob-bounce 15s infinite ease-in-out;
+.ambient-particle {
+  position: absolute;
+  border-radius: 9999px;
+  background-color: rgba(96, 165, 250, 0.35);
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: particle-float 12s infinite ease-in-out;
 }
 
-.animate-blob-slower {
-  animation: blob-bounce 20s infinite ease-in-out 2s;
-}
+.ambient-particle-delay-1 { animation-delay: 0s; animation-duration: 14s; }
+.ambient-particle-delay-2 { animation-delay: 2s; animation-duration: 18s; }
+.ambient-particle-delay-3 { animation-delay: 4s; animation-duration: 16s; }
+.ambient-particle-delay-4 { animation-delay: 6s; animation-duration: 20s; }
+.ambient-particle-delay-5 { animation-delay: 8s; animation-duration: 15s; }
 
-.animate-blob-slowest {
-  animation: blob-bounce 25s infinite ease-in-out 4s;
+@media (prefers-reduced-motion: reduce) {
+  .ambient-particle {
+    animation: none !important;
+  }
 }
 
 /* Custom Scrollbar */

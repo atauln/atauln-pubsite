@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="100%" height="auto" style="background-color: #ffffff; font-family: 'Inter', system-ui, sans-serif;">
+  <!-- Grid lines -->
+  <line x1="80" y1="50" x2="80" y2="420" stroke="#ccc" stroke-width="1.5" />
+  <line x1="80" y1="420" x2="550" y2="420" stroke="#ccc" stroke-width="1.5" />
+  
+  <!-- Axis Labels -->
+  <text x="50" y="45" font-size="14" font-weight="600" fill="#333">Price ($)</text>
+  <text x="540" y="445" font-size="14" font-weight="600" fill="#333">Quantity (Q)</text>
+  
+  <!-- Original Demand (P = 100 - 0.5Q) -->
+  <line x1="80" y1="50" x2="480" y2="420" stroke="#2563eb" stroke-opacity="0.3" stroke-width="2" />
+  <text x="490" y="425" font-size="12" fill="#2563eb" fill-opacity="0.5">Original Demand</text>
+  
+  <!-- New Demand with $4 subsidy (P = 104 - 0.5Q) -->
+  <!-- At Q=0, P=104 (y=35.2) -->
+  <!-- At Q=208, P=0 (y=420) -->
+  <line x1="80" y1="35.2" x2="496" y2="420" stroke="#2563eb" stroke-width="3" />
+  <text x="450" y="380" font-size="13" font-weight="600" fill="#2563eb">Demand + Subsidy (P = 104 - 0.5Q)</text>
+  
+  <!-- Original MR (MR = 100 - Q) -->
+  <line x1="80" y1="50" x2="280" y2="420" stroke="#7c3aed" stroke-opacity="0.3" stroke-dasharray="4" stroke-width="1.5" />
+  
+  <!-- New MR (MR = 104 - Q) -->
+  <!-- At Q=0, MR=104 (y=35.2) -->
+  <!-- At Q=104, MR=0 (y=420) -->
+  <!-- Scale: Q coordinate = 80 + Q * 2 -->
+  <line x1="80" y1="35.2" x2="288" y2="420" stroke="#7c3aed" stroke-dasharray="4" stroke-width="2" />
+  <text x="295" y="415" font-size="13" font-weight="600" fill="#7c3aed">New MR</text>
+  
+  <!-- MC Curve (MC = 10) -->
+  <line x1="80" y1="383" x2="520" y2="383" stroke="#dc2626" stroke-width="3" />
+  <text x="530" y="388" font-size="13" font-weight="600" fill="#dc2626">MC = 10</text>
+  
+  <!-- New Q_m = 94 -> x = 80 + 94*2 = 268 -->
+  <!-- New P_m (on new demand) = 104 - 0.5*94 = 57 -> y = 420 - 57*3.7 = 209.1 -->
+  <!-- Price paid by consumers = 53 -> y = 420 - 53*3.7 = 223.9 -->
+  
+  <!-- Dotted projection lines for Q_m and P_m received -->
+  <line x1="268" y1="209.1" x2="268" y2="420" stroke="#555" stroke-dasharray="3" />
+  <line x1="80" y1="209.1" x2="268" y2="209.1" stroke="#555" stroke-dasharray="3" />
+  <line x1="80" y1="223.9" x2="268" y2="223.9" stroke="#555" stroke-dasharray="3" />
+  
+  <!-- Dots at key points -->
+  <circle cx="268" cy="209.1" r="4" fill="#000" />
+  <circle cx="268" cy="383" r="4" fill="#000" />
+  
+  <!-- Axis ticks and labels -->
+  <!-- P_m received = 57 -->
+  <text x="58" y="214" font-size="12" fill="#555">57</text>
+  <!-- P_consumers pay = 53 -->
+  <text x="58" y="229" font-size="12" fill="#555">53</text>
+  <!-- MC = 10 -->
+  <text x="58" y="388" font-size="12" fill="#555">10</text>
+  
+  <!-- Q_m = 94 -->
+  <text x="260" y="438" font-size="12" fill="#555">94</text>
+  
+  <text x="210" y="30" font-size="16" font-weight="700" fill="#111">Monopoly with $4 Consumer Subsidy</text>
+</svg>
