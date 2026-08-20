@@ -18,7 +18,7 @@ export const NAV_LINKS = [
 export const CONTACT_INFO = {
   email: 'ataulnoor75@gmail.com',
   phone: '(513) 582-6809',
-  location: 'Rochester, NY',
+  location: 'Florence, KY',
   github: 'https://github.com/atauln',
   linkedin: 'https://linkedin.com/in/atanoor',
   resume: '/resume.pdf'

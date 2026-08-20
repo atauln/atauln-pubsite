@@ -16,7 +16,7 @@ export const HeroSection = ({ trackExternalLink }) => {
           Building Scalable <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-violet-400">Backend Systems</span> & Cloud Infrastructure
         </h1>
         <p className="text-lg text-zinc-400 max-w-xl leading-relaxed">
-          Hi, I'm <strong className="text-white">Ata Noor</strong>. Software engineering student at Rochester Institute of Technology (RIT) specializing in distributed API architectures, cloud infrastructure, and semantic search pipelines.
+          Hi, I'm <strong className="text-white">Ata Noor</strong>. Software engineering graduate from Rochester Institute of Technology (RIT) specializing in distributed API architectures, cloud infrastructure, and semantic search pipelines.
         </p>
 
         <div className="flex flex-wrap sm:flex-nowrap gap-3 pt-2">
